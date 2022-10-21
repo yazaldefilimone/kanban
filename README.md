@@ -9,7 +9,7 @@
   <img alt="Languages" src="https://img.shields.io/github/languages/count/yazaldefilimonepinto/kanban-api?color=FFFFFF&labelColor=635FC7">
 </p>
 <p align="center" >
-Kanban task management api rest building with express, clean arch, tdd, prisma, vitest, mongodb.
+Kanban task management  building with nextjs,react, clean arch.
 <P/>
 
 ## To-do
