@@ -1,14 +1,22 @@
 import styled from 'styled-components';
 
 export const InputContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+
+  > label {
+    font-weight: 600;
+  }
   > input {
     min-width: 250px;
-    min-height: 30px;
+    min-height: 45px;
     background: none;
     border: none;
     outline: none;
-    border: 1px solid var(--gray-color);
+    border: 2px solid var(--gray-color);
     color: var(--text-color);
+    font-size: var(--normal-font-size);
     padding: 0.5rem;
     transition: 0.3s;
     border-radius: 0.2rem;
