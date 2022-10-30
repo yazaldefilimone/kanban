@@ -1,18 +1,31 @@
 import styled from 'styled-components';
 
 export const SidebarContainer = styled.section`
+  position: fixed;
+  overflow-x: hidden;
+  left: 0px;
   padding-right: 1rem;
   background: var(--gray-color);
-  max-width: 300px;
+  min-width: 300px;
   height: 100vh;
   border-right: 1px solid var(--border-color);
 `;
-
+export const SideBarContent = styled.div``;
 export const SideBarBoard = styled.div`
+  padding-top: 2rem;
+  span {
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 0px 1rem;
+    font-size: var(--normal-font-size);
+    margin-bottom: 1rem;
+    display: block;
+    color: var(--gray-color-alt);
+  }
   > ul {
     display: flex;
     flex-direction: column;
-    /* gap: 0.6rem; */
+    gap: 0.4rem;
   }
 `;
 
@@ -45,7 +58,7 @@ export const SideBarButton = styled.button<{ bg?: boolean; active?: boolean }>`
   border: 2px solid transparent;
   border-left: none;
   &:hover {
-    background: ${(props) => (props.bg ? 'rgba(0,0,0, .3)' : 'var(--first-color);')};
+    background: ${(props) => (props.bg ? 'rgba(0,0,0, .3)' : 'var(--first-color)')};
     color: ${(props) => (props.bg ? 'none' : ' var(--text-color)')};
   }
 `;

@@ -3,7 +3,7 @@ import { FunctionComponent } from 'react';
 import { useRecoilState } from 'recoil';
 import { Board } from '~/domain/entities/board';
 import { boardStore } from '~/infrastructure/services/store/recoil';
-import { SidebarContainer, SideBarBoard, SideBarButton } from './styles';
+import { SidebarContainer, SideBarBoard, SideBarButton, SideBarContent } from './styles';
 
 export const Sidebar: FunctionComponent = () => {
   const [board, SetBoard] = useRecoilState(boardStore);
@@ -12,7 +12,6 @@ export const Sidebar: FunctionComponent = () => {
     if (board.active?.id === boardParam.id) {
       return null;
     }
-
     SetBoard((current) => ({ ...current, active: boardParam }));
   };
 
@@ -29,19 +28,22 @@ export const Sidebar: FunctionComponent = () => {
 
   return (
     <SidebarContainer>
-      <SideBarBoard>
-        <ul>
-          {board.all.map(showBoard)}
-          <li>
-            <SideBarButton bg={true}>
-              add new board <Plus weight="bold" size={16} />
-            </SideBarButton>
-          </li>
-        </ul>
-      </SideBarBoard>
-      <div>
-        <div></div>
-      </div>
+      <SideBarContent>
+        <SideBarBoard>
+          <span>All Boards ({board.all.length})</span>
+          <ul>
+            {board.all.map(showBoard)}
+            <li>
+              <SideBarButton bg={true}>
+                add new board <Plus weight="bold" size={16} />
+              </SideBarButton>
+            </li>
+          </ul>
+        </SideBarBoard>
+        <div>
+          <div></div>
+        </div>
+      </SideBarContent>
     </SidebarContainer>
   );
 };
