@@ -4,12 +4,13 @@ export const GlobalStyles = createGlobalStyle`
 :root {
   ---body-font: 'Plus Jakarta Sans', sans-serif;
   --first-color: #635FC7;
-  --first-color-alt: #A8A4FF;
+  --first-color-alt: #A8A43c;
   --secund-color: #20212C;
   --gray-color: #2B2C37;
   --gray-color-alt:#828FA3;
   --body-color: #000112;
-  --text-color: #828FA3;
+  --text-color: #fff;
+  --border-color: rgb(62 63 78 / 1);
 
 
     /* .5rem = 8px, 1rem = 16px, 1.5rem = 24px ... */
@@ -49,11 +50,15 @@ body {
   line-height: 1.6;
   font-family:  var(---body-font);
   color: var(--text-color);
+  font-size: var(--normal-font-size);
 }
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+   background: none;
+    border: none;
+    outline: none;
 }
 
 html {
