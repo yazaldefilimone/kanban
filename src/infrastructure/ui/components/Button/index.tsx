@@ -5,11 +5,12 @@ type ButtonProps = {
   type?: 'button' | 'submit' | 'reset';
   action: () => void;
   children: ReactNode;
+  bg?: boolean;
 };
 
-export const Button: FunctionComponent<ButtonProps> = ({ action, type, children }) => {
+export const Button: FunctionComponent<ButtonProps> = ({ action, type, children, bg }) => {
   return (
-    <ButtonContainer type={type || 'button'} onClick={() => action()}>
+    <ButtonContainer type={type || 'button'} bg={bg === undefined ? true : bg} onClick={() => action()}>
       {children}
     </ButtonContainer>
   );
