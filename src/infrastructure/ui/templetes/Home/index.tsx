@@ -1,9 +1,14 @@
 import { Fragment, FunctionComponent } from 'react';
+import { Header } from '~/infrastructure/ui/components/Header';
+import { Sidebar } from '~/infrastructure/ui/components/Sidebar';
+import { Board } from '../../components/Board';
 
 export const HomeTemplete: FunctionComponent = () => {
   return (
     <Fragment>
-      <h1>Home</h1>
+      <Header />
+      <Sidebar />
+      <Board />
     </Fragment>
   );
 };
