@@ -2,7 +2,7 @@ import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import { Fragment } from 'react';
 import { GlobalStyles } from '~/shared/styles/globals';
-
+import { RecoilRoot } from 'recoil';
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <Fragment>
@@ -13,7 +13,9 @@ function MyApp({ Component, pageProps }: AppProps) {
         <meta name="description" content="Kanban task management web app" />
       </Head>
       <GlobalStyles />
-      <Component {...pageProps} />
+      <RecoilRoot>
+        <Component {...pageProps} />
+      </RecoilRoot>
     </Fragment>
   );
 }
