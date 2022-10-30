@@ -24,10 +24,12 @@
   },
   "dependencies": {
     "@babel/core": "^7.19.3",
-    "@radix-ui/react-popover": "^1.0.2",
+    "@radix-ui/react-tabs": "^1.0.1",
     "next": "12.2.3",
+    "phosphor-react": "^1.4.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "recoil": "^0.7.6",
     "styled-components": "^5.3.6"
   },
   "devDependencies": {
