@@ -6,9 +6,9 @@ export const GlobalStyles = createGlobalStyle`
   --first-color: #635FC7;
   --first-color-alt: #A8A43c;
   --secund-color: #20212C;
-  --gray-color: #2B2C37;
+  --gray-color: rgb(43 44 55 /1);
   --gray-color-alt:#828FA3;
-  --body-color: #000112;
+  --body-color: rgb(32 33 44 /1);
   --text-color: #fff;
   --border-color: rgb(62 63 78 / 1);
 
