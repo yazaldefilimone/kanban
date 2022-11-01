@@ -1,79 +1,108 @@
 import { FunctionComponent, useState } from 'react';
 import { hexadecimalColor } from '~/shared/hex-color';
-import { Task } from '../Task';
+// import { Task } from '../Task';
 import { BoardContainer, BoardColumn, BoardColumnHead, BoardStatus, BoardTitle } from './styles';
 import { DragDropContext, DropResult, ResponderProvided } from 'react-beautiful-dnd';
+import dynamic from 'next/dynamic';
 
+const Task = dynamic(() => import('../Task'), {
+  ssr: false
+});
 export const Board: FunctionComponent = () => {
-  const [search, SetSearch] = useState('');
-  const status = ['TODO', 'DOING', 'DONE'];
+  const [k, SetTasks] = useState('');
   const tasks = [
     [
       {
-        id: 'sdfhdgjkfl',
+        id: 'fhchgvdyjavdyulwegyfduvewyu',
         name: 'Plan Product Hunt launch',
         total: 'Subtasks (0 of 6)'
       },
       {
-        id: 'hicvhjcvuwecjhg',
+        id: 'gadugvyusvcyuweyuwe',
         name: 'Share on Show HN',
         total: 'Subtasks (0 of 6)'
       },
       {
-        id: 'qgyfhdbjnkdb',
+        id: 'hccvhgwdvwvcuwe',
         name: 'Write launch article to publish on multiple channels',
         total: 'Subtasks (0 of 6)'
       }
     ],
     [
       {
-        id: 'asjhdajd',
+        id: 'hbcjvuwe',
         name: ' Product  launch',
         total: 'Subtasks (0 of 6)'
       },
       {
-        id: 'fdgfhjwregrdfs',
+        id: 'ehcbjhvujew',
         name: 'Share on Show HN',
         total: 'Subtasks (0 of 6)'
       },
       {
-        id: 'wfwefwefwef',
+        id: 'ehcvwejhgvj',
         name: ' article to publish on multiple channels',
         total: 'Subtasks (0 of 6)'
       }
     ],
     [
       {
-        id: 'sdfhdgjkfl',
+        id: 'sdhcsjdcvj',
         name: 'Plan Product Hunt launch',
         total: 'Subtasks (0 of 6)'
       },
       {
-        id: 'ahvbfbvsr',
+        id: 'sdcjhhbcijhd',
         name: 'Share HN',
         total: 'Subtasks (0 of 6)'
       },
       {
-        id: 'sdhkbfs',
+        id: 'sdbchjldsvcjhw',
         name: 'Write launch ',
         total: 'Subtasks (0 of 6)'
       }
     ]
   ];
+  const status = ['TODO', 'DOING', 'DONE'];
+
   function onDragEnd(result: DropResult, provided: ResponderProvided) {
-    console.log(result, provided);
+    const { destination, source, draggableId } = result;
+    if (!destination) return;
+    const newDestinationIndex = destination?.index as number;
+    const newDestinationColumn = destination?.droppableId as string;
+    const oldDestinationIndex = source?.index;
+    const oldDestinationColumn = source?.droppableId;
+    const taskId = draggableId;
+
+    const newStatusPosition = status.indexOf(newDestinationColumn);
+    const oldStatusPosition = status.indexOf(oldDestinationColumn);
+
+    const task = tasks[oldStatusPosition].find((old) => old.id === taskId);
+    if (task) {
+      tasks[oldStatusPosition]?.splice(oldDestinationIndex, 1);
+      tasks[newStatusPosition]?.splice(newDestinationIndex, 0, task);
+    }
+
+    console.log({ draggableId, oldDestinationIndex, newDestinationIndex, newStatusPosition });
   }
+  const statusWithColor = status.map((s) => ({
+    name: s,
+    color: hexadecimalColor()
+  }));
   return (
     <BoardContainer>
       <DragDropContext onDragEnd={onDragEnd}>
-        {status.map((status, index) => {
+        {statusWithColor.map((status, index) => {
+          const task = tasks[index];
           return (
-            <BoardColumn key={status}>
+            <BoardColumn key={status.name}>
               <BoardColumnHead>
-                <BoardStatus color={hexadecimalColor()}></BoardStatus>
-                <BoardTitle>{status}</BoardTitle>
+                <BoardStatus color={status.color}></BoardStatus>
+                <BoardTitle>
+                  {status.name}- ( {task.length})
+                </BoardTitle>
               </BoardColumnHead>
-              <Task tasks={tasks[index]} id={status} />
+              <Task tasks={task} id={status.name} />
             </BoardColumn>
           );
         })}
