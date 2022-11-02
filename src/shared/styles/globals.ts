@@ -90,4 +90,16 @@ img {
   max-width: 100%;
   height: auto;
 }
+
+::-webkit-scrollbar{
+  width:.4rem;
+  border-radius:.5rem;
+  background: var(--gray-color);
+  margin-right: 1rem;
+}
+::-webkit-scrollbar-thumb {
+  border-radius:.5rem;
+  cursor: pointer;
+  transition: .3s ease-in-out;
+  background-color:var(--first-color);}
 `;
