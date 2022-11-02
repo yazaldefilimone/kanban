@@ -1,16 +1,18 @@
 import { Gear, Plus, UserGear } from 'phosphor-react';
-import { FunctionComponent } from 'react';
+import { FunctionComponent, useState } from 'react';
 import { useRecoilValue } from 'recoil';
 import { boardStore } from '~/infrastructure/services/store/recoil';
 import { Button } from '~/infrastructure/ui/components/Button';
-
+import { Modal } from '../Modal';
+import { TaskForm } from '../TaskForm';
 import { HeaderAction, HeaderContainer, HeaderContent, HeaderLogo, HeaderWrapper } from './styles';
 
 export const Header: FunctionComponent = () => {
   const { active } = useRecoilValue(boardStore);
+  const [modal, SetModal] = useState(false);
 
   const handlerButton = () => {
-    return null;
+    SetModal(!modal);
   };
   return (
     <HeaderContainer>
@@ -33,6 +35,9 @@ export const Header: FunctionComponent = () => {
           </HeaderAction>
         </HeaderWrapper>
       </HeaderContent>
+      <Modal active={modal} SetActive={SetModal}>
+        <TaskForm heading="Add new task" />
+      </Modal>
     </HeaderContainer>
   );
 };
