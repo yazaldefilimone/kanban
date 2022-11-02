@@ -1,4 +1,4 @@
-import { FunctionComponent, useState } from 'react';
+import { Fragment, FunctionComponent, useState } from 'react';
 import { hexadecimalColor } from '~/shared/hex-color';
 // import { Task } from '../Task';
 import { BoardContainer, BoardColumn, BoardColumnHead, BoardStatus, BoardTitle } from './styles';
@@ -90,23 +90,25 @@ export const Board: FunctionComponent = () => {
     color: hexadecimalColor()
   }));
   return (
-    <BoardContainer>
-      <DragDropContext onDragEnd={onDragEnd}>
-        {statusWithColor.map((status, index) => {
-          const task = tasks[index];
-          return (
-            <BoardColumn key={status.name}>
-              <BoardColumnHead>
-                <BoardStatus color={status.color}></BoardStatus>
-                <BoardTitle>
-                  {status.name}- ( {task.length})
-                </BoardTitle>
-              </BoardColumnHead>
-              <Task tasks={task} id={status.name} />
-            </BoardColumn>
-          );
-        })}
-      </DragDropContext>
-    </BoardContainer>
+    <Fragment>
+      <BoardContainer>
+        <DragDropContext onDragEnd={onDragEnd}>
+          {statusWithColor.map((status, index) => {
+            const task = tasks[index];
+            return (
+              <BoardColumn key={status.name}>
+                <BoardColumnHead>
+                  <BoardStatus color={status.color}></BoardStatus>
+                  <BoardTitle>
+                    {status.name}- ( {task.length})
+                  </BoardTitle>
+                </BoardColumnHead>
+                <Task tasks={task} id={status.name} />
+              </BoardColumn>
+            );
+          })}
+        </DragDropContext>
+      </BoardContainer>
+    </Fragment>
   );
 };
