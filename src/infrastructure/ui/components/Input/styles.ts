@@ -14,12 +14,13 @@ export const InputContainer = styled.div`
     background: none;
     border: none;
     outline: none;
-    border: 2px solid var(--gray-color);
+    border: 2px solid var(--border-color);
     color: var(--text-color);
     font-size: var(--normal-font-size);
     padding: 0.5rem;
     transition: 0.3s;
-    border-radius: 0.2rem;
+    border-radius: 0.4rem;
+
     &:hover {
       border-color: var(--first-color);
     }

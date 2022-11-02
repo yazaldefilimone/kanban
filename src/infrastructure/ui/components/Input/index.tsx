@@ -7,7 +7,7 @@ type InputProps = {
   label?: string;
   name?: string;
   action: {
-    SetValue: Dispatch<SetStateAction<string>>;
+    SetValue: (value: string) => void;
     value: string;
   };
 };
