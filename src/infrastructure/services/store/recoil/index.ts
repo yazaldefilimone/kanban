@@ -36,7 +36,7 @@ type userStoreType = {
 };
 
 export const boardStore = atom<boardStoreType>({
-  key: 'boardStore',
+  key: 'tsyudfihjgnohkmfgdjshgfgchvjfbkgnl;mlhfndisugyfghjfkjgnl',
   default: {
     active: null,
     all: boards
