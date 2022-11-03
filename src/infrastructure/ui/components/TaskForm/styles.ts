@@ -1,12 +1,16 @@
 import styled from 'styled-components';
 
 export const TaskFormContainer = styled.div`
+  z-index: 20;
   background-color: var(--gray-color);
   padding: 2rem;
   border-radius: 0.5rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  max-height: 900px;
+  overflow-y: auto;
+  overflow-x: hidden;
 `;
 
 export const TaskFormContent = styled.div`
@@ -65,6 +69,4 @@ export const Subtasks = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  max-height: 250px;
-  overflow-y: auto;
 `;

@@ -53,6 +53,7 @@ export const TaskForm: FunctionComponent<TaskFormProps> = ({ heading }) => {
       <TaskFormContent>
         <Input
           label="Name"
+          name="name"
           placeholder="Enter task name"
           action={{
             SetValue: handlerName,
