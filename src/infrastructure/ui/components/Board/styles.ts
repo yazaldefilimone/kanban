@@ -5,7 +5,9 @@ export const BoardContainer = styled.section`
   padding: 1rem 2rem;
   display: flex;
   align-items: flex-start;
+  overflow: auto;
   gap: 1rem;
+  max-height: calc(100vh - 5rem);
 `;
 export const BoardColumn = styled.div`
   width: 100%;
