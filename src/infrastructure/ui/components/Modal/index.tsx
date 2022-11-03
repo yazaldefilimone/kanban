@@ -7,11 +7,14 @@ type modalType = {
   SetActive: Dispatch<SetStateAction<boolean>>;
 };
 export const Modal: FunctionComponent<modalType> = ({ children, active, SetActive }) => {
-  function handlerClick() {
-    SetActive((act: boolean) => !act);
+  function handlerClick(event: any) {
+    const isTagModal = event.target.id;
+    if (isTagModal) {
+      SetActive((act: boolean) => !act);
+    }
   }
   return (
-    <ModalContainer onClick={handlerClick} active={active}>
+    <ModalContainer onClick={handlerClick} id="modal" active={active}>
       {children}
     </ModalContainer>
   );

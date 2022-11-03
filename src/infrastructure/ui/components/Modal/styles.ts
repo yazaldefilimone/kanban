@@ -7,7 +7,7 @@ export const ModalContainer = styled.div<{ active: boolean }>`
   position: fixed;
   top: 0px;
   left: 0px;
-  z-index: 100;
+  z-index: 10;
   align-items: center;
   justify-content: center;
   display: ${({ active }) => (active ? 'flex' : 'none')};
