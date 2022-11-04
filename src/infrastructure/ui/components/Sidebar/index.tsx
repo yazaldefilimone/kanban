@@ -1,12 +1,15 @@
 import { Kanban, Plus } from 'phosphor-react';
-import { FunctionComponent } from 'react';
+import { FunctionComponent, useState } from 'react';
 import { useRecoilState } from 'recoil';
 import { Board } from '~/domain/entities/board';
 import { boardStore } from '~/infrastructure/services/store/recoil';
+import { BoardForm } from '../BoardForm';
+import { Modal } from '../Modal';
 import { SidebarContainer, SideBarBoard, SideBarButton, SideBarContent } from './styles';
 
 export const Sidebar: FunctionComponent = () => {
   const [board, SetBoard] = useRecoilState(boardStore);
+  const [modalBoard, SetModalBoard] = useState(false);
 
   const handlerBoard = (boardParam: Board) => {
     if (board.active?.id === boardParam.id) {
@@ -34,7 +37,7 @@ export const Sidebar: FunctionComponent = () => {
           <ul>
             {board.all.map(showBoard)}
             <li>
-              <SideBarButton bg={true}>
+              <SideBarButton bg={true} onClick={() => SetModalBoard(!modalBoard)}>
                 add new board <Plus weight="bold" size={16} />
               </SideBarButton>
             </li>
@@ -44,6 +47,9 @@ export const Sidebar: FunctionComponent = () => {
           <div></div>
         </div>
       </SideBarContent>
+      <Modal active={modalBoard} SetActive={SetModalBoard}>
+        <BoardForm heading={'Add New Board'} />
+      </Modal>
     </SidebarContainer>
   );
 };
