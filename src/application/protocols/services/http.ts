@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export type httpRequestType = {
   url: string;
   method: httpMethodType;

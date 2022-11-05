@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { IUserUseCase } from '~/domain/usecases';
 import { right, left } from '~/shared/either';
 import { IHttpClient, ILocalStorage } from '~/application/protocols/services';
