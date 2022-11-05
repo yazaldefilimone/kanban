@@ -13,9 +13,16 @@ export const HeaderContent = styled.nav`
   padding: 0px 1.5rem;
   margin: 0 auto;
 `;
+
+export const HeaderSearch = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+`;
 export const HeaderAction = styled.div`
   display: flex;
   align-items: center;
+  gap: 1rem;
 `;
 
 export const HeaderWrapper = styled.div`
