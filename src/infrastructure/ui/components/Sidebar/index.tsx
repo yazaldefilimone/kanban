@@ -3,8 +3,8 @@ import { FunctionComponent, useState } from 'react';
 import { useRecoilState } from 'recoil';
 import { Board } from '~/domain/entities/board';
 import { boardStore } from '~/infrastructure/services/store/recoil';
-import { BoardForm } from '../BoardForm';
-import { Modal } from '../Modal';
+import { BoardForm } from '~/infrastructure/ui/components/BoardForm';
+import { Modal } from '~/infrastructure/ui/components/Modal';
 import { SidebarContainer, SideBarBoard, SideBarButton, SideBarContent } from './styles';
 
 export const Sidebar: FunctionComponent = () => {

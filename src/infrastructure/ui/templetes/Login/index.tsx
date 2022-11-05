@@ -1,9 +1,9 @@
 import Image from 'next/image';
 import { GithubLogo } from 'phosphor-react';
 import { FunctionComponent, useState } from 'react';
-import { AuthComponent } from '../../components/Auth';
-import { Button } from '../../components/Button';
-import { Input } from '../../components/Input';
+import { AuthComponent } from '~/infrastructure/ui/components/Auth';
+import { Button } from '~/infrastructure/ui/components/Button';
+import { Input } from '~/infrastructure/ui/components/Input';
 import { LoginButton, LoginContainer, LoginForm, LoginFormSocial } from './styles';
 export const Login: FunctionComponent = () => {
   const [email, SetEmail] = useState('');

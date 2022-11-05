@@ -1,6 +1,9 @@
 import { FunctionComponent, ReactNode, useState } from 'react';
-import { Button } from '../Button';
-import { Input } from '../Input';
+import { Button } from '~/infrastructure/ui/components/Button';
+import { Input } from '~/infrastructure/ui/components/Input';
+import { ComboBox } from '~/infrastructure/ui/components/Combobox';
+import { SubtaskForm } from '~/infrastructure/ui/components/SubtaskForm';
+
 import {
   TaskFormContainer,
   TaskFormContent,
@@ -10,8 +13,7 @@ import {
   SubtaskBtn,
   Subtasks
 } from './styles';
-import { ComboBox } from '../Combobox';
-import { SubtaskForm } from '../SubtaskForm';
+
 interface TaskFormProps {
   children?: ReactNode;
   heading: string;

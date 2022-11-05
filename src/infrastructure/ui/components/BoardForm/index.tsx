@@ -1,9 +1,8 @@
 import { FunctionComponent, ReactNode, useState } from 'react';
-import { Button } from '../Button';
-import { Input } from '../Input';
+import { Button } from '~/infrastructure/ui/components/Button';
+import { Input } from '~/infrastructure/ui/components/Input';
 import { BoardFormContainer, BoardFormContent, SubTaskFormContainer, SubTaskInput, SubtaskBtn, Subtasks } from './styles';
-import { ComboBox } from '../Combobox';
-import { StatusForm } from '../StatusForm';
+import { StatusForm } from '~/infrastructure/ui/components/StatusForm';
 interface BoardFormProps {
   children?: ReactNode;
   heading: string;

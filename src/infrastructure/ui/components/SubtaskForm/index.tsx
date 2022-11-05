@@ -1,5 +1,5 @@
 import { FunctionComponent, useEffect, useState } from 'react';
-import { Input } from '../Input';
+import { Input } from '~/infrastructure/ui/components/Input';
 
 type subtaskFormProps = {
   submit: boolean;

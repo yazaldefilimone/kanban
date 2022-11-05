@@ -1,11 +1,10 @@
 import { Fragment, FunctionComponent, useState } from 'react';
 import { hexadecimalColor } from '~/shared/hex-color';
-// import { Task } from '../Task';
 import { BoardContainer, BoardColumn, BoardColumnHead, BoardStatus, BoardTitle } from './styles';
 import { DragDropContext, DropResult, ResponderProvided } from 'react-beautiful-dnd';
 import dynamic from 'next/dynamic';
 
-const Task = dynamic(() => import('../Task'), {
+const Task = dynamic(() => import('~/infrastructure/ui/components/Task'), {
   ssr: false
 });
 export const Board: FunctionComponent = () => {
