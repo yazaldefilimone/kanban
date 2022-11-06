@@ -3,10 +3,10 @@ import { right, left } from '~/shared/either';
 import { httpStatusCode, IHttpClient, ILocalStorage } from '~/application/protocols/services';
 
 export class UserUseCase implements IUserUseCase {
-  private readonly localStorage: ILocalStorage<{ token?: string; id?: string }>;
+  private readonly localStorage: ILocalStorage;
   private readonly httpClient: IHttpClient;
   private readonly apiAddress: string;
-  constructor(localStorage: ILocalStorage<{ token?: string; id?: string }>, httpClient: IHttpClient, apiAddress: string) {
+  constructor(localStorage: ILocalStorage, httpClient: IHttpClient, apiAddress: string) {
     this.localStorage = localStorage;
     this.httpClient = httpClient;
     this.apiAddress = apiAddress;
