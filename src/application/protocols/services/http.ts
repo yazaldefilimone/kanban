@@ -14,6 +14,7 @@ export type httpMethodType = 'post' | 'get' | 'put' | 'delete';
 
 export enum httpStatusCode {
   ok = 200,
+  create = 201,
   noContent = 204,
   badRequest = 400,
   unauthorized = 401,
