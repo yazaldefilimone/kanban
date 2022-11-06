@@ -1,4 +1,4 @@
 export interface ILocalStorage<TypeGet> {
-  get: () => TypeGet;
-  set: () => void;
+  get(data: { key: string }): TypeGet;
+  set<T>(data: { key: string; data: T }): void;
 }
