@@ -1,1 +1,1 @@
-export * from './info-storage';
+export * from './local-storage';
