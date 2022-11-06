@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { ILocalStorage } from '~/application/protocols/services';
 
 export class LocalStorage implements ILocalStorage {
