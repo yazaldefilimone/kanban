@@ -7,12 +7,20 @@ type ButtonProps = {
   children: ReactNode;
   bg?: boolean;
   border?: boolean;
+  loading?: boolean;
 };
 
-export const Button: FunctionComponent<ButtonProps> = ({ action, type, children, bg, border }) => {
+export const Button: FunctionComponent<ButtonProps> = ({ action, type, children, bg, border, loading }) => {
   return (
-    <ButtonContainer type={type || 'button'} bg={bg === undefined ? true : bg} border={border || false} onClick={() => action()}>
+    <ButtonContainer
+      type={type || 'button'}
+      bg={bg === undefined ? true : bg}
+      border={border || false}
+      disabled={loading}
+      onClick={() => action()}
+    >
       {children}
+      {loading && <span className="loading"></span>}
     </ButtonContainer>
   );
 };
