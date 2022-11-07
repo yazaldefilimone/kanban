@@ -17,7 +17,7 @@ export const LoginForm = styled.div`
   flex-direction: column;
   gap: 1rem;
   > button {
-    max-width: max-content;
+    max-width: 150px;
   }
 `;
 
@@ -26,14 +26,16 @@ export const LoginButton = styled.button`
   align-items: center;
   justify-content: center;
   background-color: var(--gray-color);
-  padding: 0.3rem;
+  padding: 0.6rem;
   border-radius: 0.2rem;
   color: #fff;
   cursor: pointer;
 `;
 
 export const LoginFormSocial = styled.div`
-  display: flex;
+  margin-top: 1rem;
+  display: grid;
   align-items: center;
+  grid-template-columns: 1fr 1fr;
   gap: 0.4rem;
 `;
