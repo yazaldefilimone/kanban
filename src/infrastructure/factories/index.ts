@@ -1,1 +1,1 @@
-export * from './info-factory';
+export * from './user-factory';
