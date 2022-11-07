@@ -10,8 +10,9 @@ type InputProps = {
     SetValue: (value: string) => void;
     value: string;
   };
+  required?: boolean;
 };
-export const Input: FunctionComponent<InputProps> = ({ type, placeholder, action, name, label }) => {
+export const Input: FunctionComponent<InputProps> = ({ type, placeholder, action, name, label, required }) => {
   const handlerChange: ChangeEventHandler<HTMLInputElement> = ({ target }) => {
     action.SetValue(target.value);
   };
@@ -19,7 +20,14 @@ export const Input: FunctionComponent<InputProps> = ({ type, placeholder, action
   return (
     <InputContainer>
       {label && <label id={name}>{label}</label>}
-      <input name={name} placeholder={placeholder} type={type || 'text'} onChange={handlerChange} value={action.value} />
+      <input
+        name={name}
+        placeholder={placeholder}
+        type={type || 'text'}
+        onChange={handlerChange}
+        value={action.value}
+        required={required || false}
+      />
     </InputContainer>
   );
 };
