@@ -12,7 +12,7 @@ export class LocalStorage implements ILocalStorage {
   }
 
   set<T>(data: { key: string; data: T }): void {
-    const payload = JSON.stringify(data);
+    const payload = JSON.stringify(data.data);
     window.localStorage.setItem(data.key, payload);
   }
 }
