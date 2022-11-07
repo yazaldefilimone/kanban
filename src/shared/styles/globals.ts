@@ -101,5 +101,17 @@ img {
   border-radius:.5rem;
   cursor: pointer;
   transition: .3s ease-in-out;
-  background-color:var(--first-color);}
+  background-color:var(--first-color)
+  }
+.loading{
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: 2px solid var(--text-color);
+  border-left-color: transparent;
+  animation: spinner .4s linear infinite;
+  @keyframes spinner {
+    to { transform: rotate(360deg); }
+  }
+}
 `;
