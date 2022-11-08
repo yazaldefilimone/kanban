@@ -1,11 +1,10 @@
 import Image from 'next/image';
-import { GithubLogo } from 'phosphor-react';
 import { FunctionComponent, useState } from 'react';
 import { IUserUseCase } from '~/domain/usecases';
 import { AuthComponent } from '~/infrastructure/ui/components/Auth';
 import { Button } from '~/infrastructure/ui/components/Button';
 import { Input } from '~/infrastructure/ui/components/Input';
-import { LoginButton, LoginContainer, LoginForm, LoginFormSocial } from './styles';
+import { LoginContainer, LoginForm, LoginFormSocial } from './styles';
 
 export const Login: FunctionComponent<{ userUseCase: IUserUseCase }> = ({ userUseCase }) => {
   const [email, SetEmail] = useState('');
@@ -61,7 +60,6 @@ export const Login: FunctionComponent<{ userUseCase: IUserUseCase }> = ({ userUs
           />
 
           <LoginFormSocial>
-            {/* <span>Login with:</span> */}
             <Button action={handlerSubmit} loading={loading}>
               Login
             </Button>
