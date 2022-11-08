@@ -4,6 +4,7 @@ export const LoginContainer = styled.div`
   /* background-color: red; */
   border: 2px solid var(--gray-color);
   padding: 2rem;
+  width: 400px;
   border-radius: 0.3rem;
   p {
     margin-bottom: 1rem;
