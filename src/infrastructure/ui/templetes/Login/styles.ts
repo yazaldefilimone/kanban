@@ -7,7 +7,7 @@ export const LoginContainer = styled.div`
   width: 400px;
   border-radius: 0.3rem;
   p {
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
   }
   h2 {
     font-size: var(--h1-font-size);
