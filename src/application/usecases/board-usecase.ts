@@ -25,7 +25,24 @@ export class BoardUseCase implements IBoardUseCase {
       case httpStatusCode.noContent:
         return left(result.body);
 
-      case httpStatusCode.serverError:
+      case httpStatusCode.create:
+        return right(result.body);
+      default:
+        return left('Internal Server Error');
+    }
+  }
+  async delete(data: IBoardUseCase.deleteInput): IBoardUseCase.deleteOutput {
+    const result = await this.httpClient.request({
+      url: `${this.apiAddress}/board/delete`,
+      method: 'delete',
+      body: data
+    });
+
+    switch (result.statusCode) {
+      case httpStatusCode.badRequest:
+        return left(result.body);
+
+      case httpStatusCode.noContent:
         return left(result.body);
 
       case httpStatusCode.ok:
@@ -33,17 +50,5 @@ export class BoardUseCase implements IBoardUseCase {
       default:
         return left('Internal Server Error');
     }
-  }
-  async delete(data: IBoardUseCase.deleteOutput): IBoardUseCase.deleteOutput {
-    console.log(data);
-    throw new Error('Not Implemented');
-  }
-  async getId(data: IBoardUseCase.getIdInput): IBoardUseCase.getIdOutput {
-    console.log(data);
-    throw new Error('Not Implemented');
-  }
-  async getUserId(data: IBoardUseCase.getUserIdInput): IBoardUseCase.getUserIdOutput {
-    console.log(data);
-    throw new Error('Not Implemented');
   }
 }
