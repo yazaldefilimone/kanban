@@ -4,6 +4,7 @@ export type httpRequestType = {
   method: httpMethodType;
   body?: any;
   headers?: any;
+  query?: any;
 };
 
 export interface IHttpClient<R = any> {
