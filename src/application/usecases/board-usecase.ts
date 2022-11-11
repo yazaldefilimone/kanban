@@ -51,4 +51,25 @@ export class BoardUseCase implements IBoardUseCase {
         return left('Internal Server Error');
     }
   }
+
+  async getId(data: IBoardUseCase.getIdInput): IBoardUseCase.getIdOutput {
+    const result = await this.httpClient.request({
+      url: `${this.apiAddress}/board/getId`,
+      method: 'get',
+      query: data
+    });
+
+    switch (result.statusCode) {
+      case httpStatusCode.badRequest:
+        return left(result.body);
+
+      case httpStatusCode.noContent:
+        return left(result.body);
+
+      case httpStatusCode.ok:
+        return right(result.body);
+      default:
+        return left('Internal Server Error');
+    }
+  }
 }
