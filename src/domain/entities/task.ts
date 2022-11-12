@@ -1,6 +1,6 @@
 import { SubTask } from './subtask';
 
-export type task = {
+export type Task = {
   id: string;
   name: string;
   description: string;
